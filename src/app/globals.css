@@ -83,3 +83,27 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Mobile-specific optimizations */
+@layer utilities {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Improve tap targets on mobile */
+  @media (max-width: 768px) {
+    button,
+    a,
+    input,
+    textarea {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}

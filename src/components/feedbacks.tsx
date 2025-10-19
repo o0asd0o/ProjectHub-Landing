@@ -55,50 +55,51 @@ const FEEDBACKS = [
 
 const Feedbacks: React.FC = () => {
   return (
-    <section className="w-full max-w-[1400px] mb-16">
-      <h1 className="text-center text-[46px] font-bold py-10">
+    <section className="w-full max-w-[1400px] mb-8 md:mb-16 px-4 md:px-6 lg:px-0">
+      <h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold py-6 md:py-10">
         What Our Customers Say
       </h1>
       <div className="w-full">
         <Carousel opts={{ align: "start" }} className="w-full">
-          <CarouselContent>
+          <CarouselContent className="-ml-2 md:-ml-4">
             {FEEDBACKS.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="md:basis-1/2 lg:basis-1/3"
-                style={{ height: 320 }}
+                className="pl-2 md:pl-4 basis-full sm:basis-1/1 md:basis-1/2 lg:basis-1/3"
               >
                 <div className="p-1 h-full">
-                  <Card className="h-full">
-                    <CardHeader>
+                  <Card className="h-[280px] sm:h-[320px] flex flex-col">
+                    <CardHeader className="flex-shrink-0">
                       <CardDescription className="flex gap-1.5">
                         {Array.from({ length: item.rate }).map((_, index) => (
                           <Star
                             key={index}
                             color="#f48c23"
-                            size={22}
+                            size={18}
                             fill="#f48c23"
                           />
                         ))}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="flex flex-col">
-                      <p className="w-full text-lg max-w-[80%] text-gray-600">
+                    <CardContent className="flex flex-col flex-grow">
+                      <p className="w-full text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed flex-grow">
                         {item.feedback}
                       </p>
                     </CardContent>
-                    <FeedbackFooter
-                      image={item.image}
-                      name={item.name}
-                      position={item.position}
-                    />
+                    <div className="flex-shrink-0">
+                      <FeedbackFooter
+                        image={item.image}
+                        name={item.name}
+                        position={item.position}
+                      />
+                    </div>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
         </Carousel>
       </div>
     </section>

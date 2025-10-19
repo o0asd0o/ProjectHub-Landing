@@ -51,19 +51,25 @@ const FEATURES = [
 
 const Features: React.FC = () => {
   return (
-    <div className="flex w-full bg-[#f9f9f9] items-center flex-col pb-16">
-      <section className="w-full max-w-[1400px]">
-        <h1 className="text-center text-[46px] font-bold py-10">
+    <div className="flex w-full bg-[#f9f9f9] items-center flex-col pb-8 md:pb-16">
+      <section className="w-full max-w-[1400px] px-4 md:px-6 lg:px-0">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold py-6 md:py-10">
           Features and Benefits
         </h1>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((item) => (
-            <div className=" bg-white rounded-xl p-8" key={item.title}>
-              <div className="flex gap-5 items-center">
-                <div className="bg-[#3b68ff] p-5 rounded-full">{item.icon}</div>
-                <span className="text-2xl font-bold">{item.title}</span>
+            <div className="bg-white rounded-xl p-6 md:p-8" key={item.title}>
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-5 items-start sm:items-center">
+                <div className="bg-[#3b68ff] p-3 md:p-5 rounded-full flex-shrink-0">
+                  {item.icon}
+                </div>
+                <span className="text-lg md:text-xl lg:text-2xl font-bold leading-tight">
+                  {item.title}
+                </span>
               </div>
-              <p className="mt-5 text-md">{item.text}</p>
+              <p className="mt-4 md:mt-5 text-sm md:text-md text-gray-600 leading-relaxed">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>

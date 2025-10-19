@@ -53,13 +53,13 @@ const getTiers = (tier: "monthly" | "annual") => [
 const Pricing: React.FC = () => {
   return (
     <div className="bg-[#f9f9f9] w-full justify-center flex">
-      <section className="py-16 w-full max-w-[1400px]">
-        <div className="container mx-auto px-4">
-          <div className="pb-7 flex flex-col items-center">
-            <h1 className="text-center text-[46px] font-bold ">
+      <section className="py-8 md:py-16 w-full max-w-[1400px]">
+        <div className="container mx-auto px-4 md:px-6 lg:px-4">
+          <div className="pb-6 md:pb-7 flex flex-col items-center">
+            <h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold mb-4">
               Simple and Transparent Pricing
             </h1>
-            <p className="max-w-[800px] text-center text-gray-500">
+            <p className="max-w-[800px] text-center text-gray-500 text-sm md:text-base leading-relaxed">
               Discover the pricing options that fit your project management
               needs. We offer flexible plans designed to help you succeed,
               whether you&apos;re just starting or manage a large-scale
@@ -68,55 +68,71 @@ const Pricing: React.FC = () => {
           </div>
           <Tabs
             defaultValue="monthly"
-            className="w-full flex flex-col items-center gap-6"
+            className="w-full flex flex-col items-center gap-4 md:gap-6"
           >
-            <TabsList className="grid w-60 grid-cols-2">
-              <TabsTrigger value="monthly" className="text-lg">
+            <TabsList className="grid w-48 sm:w-60 grid-cols-2">
+              <TabsTrigger value="monthly" className="text-sm md:text-lg">
                 Monthly
               </TabsTrigger>
-              <TabsTrigger value="annually" className="text-lg">
+              <TabsTrigger value="annually" className="text-sm md:text-lg">
                 Annually
               </TabsTrigger>
             </TabsList>
             <TabsContent value="monthly" className="w-full">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                 {getTiers("monthly").map((tier, index) => (
                   <Card
                     key={index}
-                    className={cn("border-none bg-[#f0f0f0] rounded-3xl p-10", {
-                      "bg-[#3b68ff] text-white": index === 1,
-                    })}
+                    className={cn(
+                      "border-none bg-[#f0f0f0] rounded-2xl md:rounded-3xl p-6 md:p-10",
+                      {
+                        "bg-[#3b68ff] text-white": index === 1,
+                      }
+                    )}
                   >
                     <CardHeader
-                      className={cn("border-b pb-8 space-y-6", {
-                        "border-b-gray-300": index !== 1,
-                      })}
+                      className={cn(
+                        "border-b pb-6 md:pb-8 space-y-4 md:space-y-6",
+                        {
+                          "border-b-gray-300": index !== 1,
+                          "border-b-gray-400": index === 1,
+                        }
+                      )}
                     >
-                      <CardTitle className="text-lg">{tier.name}</CardTitle>
-                      <p className="ml-2 text-4xl font-bold">{tier.price}</p>
+                      <CardTitle className="text-base md:text-lg">
+                        {tier.name}
+                      </CardTitle>
+                      <p className="ml-0 md:ml-2 text-2xl md:text-4xl font-bold">
+                        {tier.price}
+                      </p>
                       <CardDescription
-                        className={cn("text-md", {
+                        className={cn("text-sm md:text-md", {
                           "text-gray-100": index === 1,
                         })}
                       >
                         {tier.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="mt-4">
-                      <ul className="space-y-5 list-disc list-inside">
+                    <CardContent className="mt-3 md:mt-4">
+                      <ul className="space-y-3 md:space-y-5 list-disc list-inside">
                         {tier.features.map((feature, featureIndex) => (
                           <li key={featureIndex}>
-                            <span className="text-md">{feature}</span>
+                            <span className="text-sm md:text-md">
+                              {feature}
+                            </span>
                           </li>
                         ))}
                       </ul>
                     </CardContent>
-                    <CardFooter className="pt-10">
+                    <CardFooter className="pt-6 md:pt-10">
                       <Button
-                        className={cn("w-full h-16 text-md font-semibold", {
-                          "text-[#3b68ff] bg-white border-[#3b68ff]":
-                            index === 1,
-                        })}
+                        className={cn(
+                          "w-full h-12 md:h-16 text-sm md:text-md font-semibold",
+                          {
+                            "text-[#3b68ff] bg-white border-[#3b68ff]":
+                              index === 1,
+                          }
+                        )}
                         variant="outline"
                       >
                         {index === 2 ? "Contact Sales" : "Get Started"}
@@ -127,43 +143,59 @@ const Pricing: React.FC = () => {
               </div>
             </TabsContent>
             <TabsContent value="annually" className="w-full">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                 {getTiers("annual").map((tier, index) => (
                   <Card
                     key={index}
-                    className={cn("border-none bg-[#f4f4f4] rounded-3xl p-10", {
-                      "bg-[#3b68ff] text-white": index === 1,
-                    })}
+                    className={cn(
+                      "border-none bg-[#f4f4f4] rounded-2xl md:rounded-3xl p-6 md:p-10",
+                      {
+                        "bg-[#3b68ff] text-white": index === 1,
+                      }
+                    )}
                   >
                     <CardHeader
-                      className={cn("border-b pb-8 space-y-6", {
-                        "border-b-gray-300": index !== 1,
-                      })}
+                      className={cn(
+                        "border-b pb-6 md:pb-8 space-y-4 md:space-y-6",
+                        {
+                          "border-b-gray-300": index !== 1,
+                          "border-b-gray-400": index === 1,
+                        }
+                      )}
                     >
-                      <CardTitle className="text-lg">{tier.name}</CardTitle>
-                      <p className="ml-2 text-4xl font-bold">{tier.price}</p>
+                      <CardTitle className="text-base md:text-lg">
+                        {tier.name}
+                      </CardTitle>
+                      <p className="ml-0 md:ml-2 text-2xl md:text-4xl font-bold">
+                        {tier.price}
+                      </p>
                       <CardDescription
-                        className={cn("text-md", {
+                        className={cn("text-sm md:text-md", {
                           "text-gray-100": index === 1,
                         })}
                       >
                         {tier.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="mt-4">
-                      <ul className="space-y-5 list-disc list-inside">
+                    <CardContent className="mt-3 md:mt-4">
+                      <ul className="space-y-3 md:space-y-5 list-disc list-inside">
                         {tier.features.map((feature, featureIndex) => (
                           <li key={featureIndex}>
-                            <span className="text-md">{feature}</span>
+                            <span className="text-sm md:text-md">
+                              {feature}
+                            </span>
                           </li>
                         ))}
                       </ul>
                     </CardContent>
-                    <CardFooter className="pt-10">
+                    <CardFooter className="pt-6 md:pt-10">
                       <Button
-                        className={cn("w-full h-16 text-md font-semibold", {
-                          "text-[#3b68ff] bg-white": index === 1,
-                        })}
+                        className={cn(
+                          "w-full h-12 md:h-16 text-sm md:text-md font-semibold",
+                          {
+                            "text-[#3b68ff] bg-white": index === 1,
+                          }
+                        )}
                         variant="outline"
                       >
                         {index === 2 ? "Contact Sales" : "Get Started"}

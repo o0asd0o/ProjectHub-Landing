@@ -1,3 +1,4 @@
+import BackToTop from "@/components/back-to-top";
 import Cta from "@/components/cta";
 import Demo from "@/components/demo";
 import ExpandSales from "@/components/expand-sales";
@@ -16,13 +17,13 @@ import Trustees from "@/components/trustees";
  * 2. Try for free login page (also for get started)
  * 3. Payment form (?)
  * 4. Request a demo form (scheduling)
- * 5. Mobile responsive designs
+ * 5. Make the site mobile responsive
  * 6. Add back to top navigation on scroll down
- * 7. Add Fade in animations
+ * 7. Add Fade in animations for cards / components
  */
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center relative">
+    <div className="flex flex-col justify-center items-center relative overflow-x-hidden">
       <Header />
       <Hero />
       <Features />
@@ -34,6 +35,8 @@ export default function Home() {
       <ExpandSales />
       <Cta />
       <Footer />
+
+      <BackToTop />
     </div>
   );
 }

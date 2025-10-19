@@ -25,18 +25,18 @@ const EXPAND_KNOWLEDGE = [
 
 const ExpandSales: React.FC = () => {
   return (
-    <div className="flex w-full bg-[#f9f9f9] items-center flex-col pb-16">
-      <section className="w-full max-w-[1400px] flex items-center flex-col">
-        <h1 className="text-center text-[46px] font-bold py-10 max-w-[700px]">
+    <div className="flex w-full bg-[#f9f9f9] items-center flex-col pb-8 md:pb-16">
+      <section className="w-full max-w-[1400px] flex items-center flex-col px-4 md:px-6 lg:px-0">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold py-6 md:py-10 max-w-[700px] leading-tight">
           Expand your sales & marketing knowledge
         </h1>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 w-full">
           {EXPAND_KNOWLEDGE.map((item) => (
             <Card
               key={item.title}
-              className="h-full p-0 overflow-hidden border-gray-300"
+              className="h-full p-0 overflow-hidden border-gray-300 hover:shadow-lg transition-shadow duration-300"
             >
-              <CardHeader className="h-60 relative">
+              <CardHeader className="h-48 md:h-60 relative p-0">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -44,8 +44,10 @@ const ExpandSales: React.FC = () => {
                   style={{ objectFit: "cover" }}
                 />
               </CardHeader>
-              <CardTitle className="px-5 py-7 text-lg">{item.title}</CardTitle>
-              <CardContent className="flex flex-col p-5 pt-0 text-md text-gray-500 pb-8">
+              <CardTitle className="px-4 md:px-5 py-4 md:py-7 text-base md:text-lg leading-tight">
+                {item.title}
+              </CardTitle>
+              <CardContent className="flex flex-col p-4 md:p-5 pt-0 text-sm md:text-md text-gray-500 pb-6 md:pb-8 leading-relaxed">
                 {item.description}
               </CardContent>
             </Card>

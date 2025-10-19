@@ -16,6 +16,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "ProjectHub App",
   description: "ProjectHub website",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
