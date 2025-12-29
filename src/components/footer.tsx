@@ -1,72 +1,14 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import React from "react";
+import { FOOTER_SECTIONS, SOCIAL_LINKS } from "@/lib/constants";
 
-const LIST = [
-  {
-    title: "Product",
-    items: [
-      "Product tour",
-      "Pricing",
-      "Templates",
-      "Apps & Integrations",
-      "Task management",
-      "Wrike Status",
-      "Gant charts",
-      "Security",
-      "API",
-    ],
-  },
-  {
-    title: "Solutions",
-    items: [
-      "All Teams",
-      "Marketing",
-      "Creative",
-      "Project Management",
-      "Product Development",
-      "Business Operations",
-      "Professinal Services",
-      "Students",
-    ],
-  },
-  {
-    title: "Resources",
-    items: [
-      "Help Center",
-      "Community",
-      "Webinars",
-      "Interactive Training",
-      "Support",
-    ],
-  },
-  {
-    title: "Company",
-    items: [
-      "About Us",
-      "Careers",
-      "ProjectHub",
-      "Our Customers",
-      "Blog",
-      "Events",
-      "Newsroom",
-      "Partner Program",
-      "User Conference",
-      "Contact Us",
-    ],
-  },
-  {
-    title: "Platform",
-    items: [
-      "Platform Overview",
-      "Integrations",
-      "Extensions",
-      "App Building",
-      "AI",
-      "Connected Data",
-      "See More",
-    ],
-  },
-];
+const SOCIAL_ICONS: Record<string, React.ElementType> = {
+  facebook: Facebook,
+  twitter: Twitter,
+  linkedin: Linkedin,
+  instagram: Instagram,
+};
+
 const Footer: React.FC = () => {
   return (
     <div className="w-full bg-[#141957] flex items-center flex-col pb-6 text-[#b0b5de]">
@@ -89,42 +31,48 @@ const Footer: React.FC = () => {
               guarantees
             </p>
             <div className="flex gap-3">
-              <div className="p-2 bg-white rounded-full">
-                <Facebook fill="#141957" color="" size={20} />
-              </div>
-              <div className="p-2 bg-white rounded-full">
-                <Twitter fill="#141957" color="" size={20} />
-              </div>
-              <div className="p-2 bg-white rounded-full">
-                <Linkedin fill="#141957" color="" size={20} />
-              </div>
-              <div className="p-2 bg-white rounded-full">
-                <Instagram color="#141957" size={20} />
-              </div>
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.name];
+                const isFilled = social.name !== "instagram";
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-white rounded-full hover:bg-gray-200 transition-colors"
+                    aria-label={social.name}
+                  >
+                    <Icon
+                      fill={isFilled ? "#141957" : undefined}
+                      color={isFilled ? "" : "#141957"}
+                      size={20}
+                    />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
           {/* Links Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-5 flex-1">
-            {LIST.map((item) => {
-              return (
-                <div key={item.title} className="flex flex-col gap-3 md:gap-4">
-                  <div className="text-base md:text-lg lg:text-xl font-bold text-[#fafafa]">
-                    {item.title}
-                  </div>
-                  <ul className="flex flex-col gap-2 md:gap-3">
-                    {item.items.map((i) => (
-                      <li
-                        key={i}
-                        className="text-sm md:text-base hover:text-white transition-colors cursor-pointer"
-                      >
-                        {i}
-                      </li>
-                    ))}
-                  </ul>
+            {FOOTER_SECTIONS.map((section) => (
+              <div key={section.title} className="flex flex-col gap-3 md:gap-4">
+                <div className="text-base md:text-lg lg:text-xl font-bold text-[#fafafa]">
+                  {section.title}
                 </div>
-              );
-            })}
+                <ul className="flex flex-col gap-2 md:gap-3">
+                  {section.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-sm md:text-base hover:text-white transition-colors cursor-pointer"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -1,12 +1,9 @@
-import BackToTop from "@/components/back-to-top";
 import Cta from "@/components/cta";
 import Demo from "@/components/demo";
 import ExpandSales from "@/components/expand-sales";
 import Faq from "@/components/faq";
 import Features from "@/components/features";
 import Feedbacks from "@/components/feedbacks";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Pricing from "@/components/pricing";
 import Trustees from "@/components/trustees";
@@ -23,8 +20,7 @@ import Trustees from "@/components/trustees";
  */
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center relative overflow-x-hidden">
-      <Header />
+    <>
       <Hero />
       <Features />
       <Feedbacks />
@@ -34,9 +30,6 @@ export default function Home() {
       <Faq />
       <ExpandSales />
       <Cta />
-      <Footer />
-
-      <BackToTop />
-    </div>
+    </>
   );
 }

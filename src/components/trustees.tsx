@@ -1,49 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Marquee from "react-fast-marquee";
-
-const TRUTEES = [
-  {
-    name: "Ford",
-    image: "ford.png",
-    width: 85,
-  },
-  {
-    name: "Shell",
-    image: "shell.png",
-    width: 50,
-  },
-  {
-    name: "Apple",
-    image: "apple.png",
-    width: 40,
-  },
-  {
-    name: "Volkswagon",
-    image: "volkswagon.png",
-    width: 40,
-  },
-  {
-    name: "CNPC",
-    image: "cnpc.png",
-    width: 40,
-  },
-  {
-    name: "Philips 66",
-    image: "phillips66.png",
-    width: 40,
-  },
-  {
-    name: "Huawei",
-    image: "huawei.png",
-    width: 42,
-  },
-  {
-    name: "Sinopec",
-    image: "sinopec.png",
-    width: 42,
-  },
-] as const;
+import { PARTNER_COMPANIES } from "@/lib/constants";
 
 const Trustees: React.FC = () => {
   return (
@@ -54,7 +12,7 @@ const Trustees: React.FC = () => {
         </h1>
         <Marquee className="mt-8 md:mt-16" speed={50}>
           <div className="relative w-full flex gap-8 md:gap-12 pr-8 md:pr-12">
-            {TRUTEES.map((item) => (
+            {PARTNER_COMPANIES.map((item) => (
               <div
                 key={item.name}
                 className="relative flex items-center justify-center gap-3 md:gap-4"
@@ -67,7 +25,7 @@ const Trustees: React.FC = () => {
                     fill
                     alt={item.name}
                     className="grayscale hover:grayscale-0 transition-all duration-300"
-                    src={`/companies/${item.image}`}
+                    src={item.logo}
                     style={{ objectFit: "contain" }}
                   />
                 </div>

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import BackToTop from "@/components/back-to-top";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,7 +28,12 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex flex-col justify-center items-center relative overflow-x-hidden">
+          <Header />
+          {children}
+          <Footer />
+          <BackToTop />
+        </div>
       </body>
     </html>
   );

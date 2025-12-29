@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { MAIN_NAV_LINKS } from "@/lib/constants";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -12,6 +13,7 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  console.log({ isScrolled });
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -34,14 +36,20 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="max-w-[1400px] w-full fixed top-0 overflow-visible transition duration-300 backdrop-blur-md bg-white/25 z-50">
+    <div
+      className={cn(
+        "max-w-[1400px] rounded-2xl w-full fixed top-0 overflow-visible transition-all duration-300 backdrop-blur-md bg-white/25 z-50",
+        { "px-4 md:px-6": isScrolled }
+      )}
+    >
       <section
         className={cn(
           "flex items-center h-20 md:h-28 justify-between w-full transition-all duration-300 px-4 md:px-1",
           { "h-16 md:h-14": isScrolled }
         )}
       >
-        <div
+        <Link
+          href="/"
           className={cn(
             "flex gap-2 md:gap-3 text-lg md:text-2xl font-bold transition-all duration-300",
             {
@@ -57,43 +65,28 @@ const Header: React.FC = () => {
             Project
             <span className="text-[#3b68ff]">Hub</span>
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex gap-8 text-md">
-          <li>
-            <Link href="#product" style={{ scrollBehavior: "smooth" }}>
-              Product
-            </Link>
-          </li>
-          <li>
-            <Link scroll={false} href="#solutions">
-              Solutions
-            </Link>
-          </li>
-          <li>
-            <Link scroll={false} href="#learn">
-              Learn
-            </Link>
-          </li>
-          <li>
-            <Link scroll={false} href="#pricing">
-              Pricing
-            </Link>
-          </li>
-          <li>
-            <Link scroll={false} href="#enterprise">
-              Enterprise
-            </Link>
-          </li>
+          {MAIN_NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="hover:text-[#3b68ff] transition-colors"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Desktop CTA Button */}
         <button
           className={cn(
-            "hidden md:block px-6 md:px-10 py-3 md:py-4 bg-[#3b68ff] text-white rounded-full transition-all duration-300 text-sm md:text-base",
+            "hidden lg:block px-6 md:px-10 py-3 md:py-4 bg-[#3b68ff] text-white rounded-full transition-all duration-300 text-sm md:text-base",
             {
-              "px-4 md:px-6 py-2": isScrolled,
+              "px-4 md:px-6 py-2 md:py-2": isScrolled,
             }
           )}
         >
@@ -114,41 +107,16 @@ const Header: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg">
           <nav className="flex flex-col py-4 px-4 space-y-4">
-            <Link
-              href="#product"
-              onClick={closeMobileMenu}
-              className="text-gray-700 hover:text-[#3b68ff] py-2 text-lg font-medium transition-colors"
-            >
-              Product
-            </Link>
-            <Link
-              href="#solutions"
-              onClick={closeMobileMenu}
-              className="text-gray-700 hover:text-[#3b68ff] py-2 text-lg font-medium transition-colors"
-            >
-              Solutions
-            </Link>
-            <Link
-              href="#learn"
-              onClick={closeMobileMenu}
-              className="text-gray-700 hover:text-[#3b68ff] py-2 text-lg font-medium transition-colors"
-            >
-              Learn
-            </Link>
-            <Link
-              href="#pricing"
-              onClick={closeMobileMenu}
-              className="text-gray-700 hover:text-[#3b68ff] py-2 text-lg font-medium transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#enterprise"
-              onClick={closeMobileMenu}
-              className="text-gray-700 hover:text-[#3b68ff] py-2 text-lg font-medium transition-colors"
-            >
-              Enterprise
-            </Link>
+            {MAIN_NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMobileMenu}
+                className="text-gray-700 hover:text-[#3b68ff] py-2 text-lg font-medium transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
             <button
               onClick={closeMobileMenu}
               className="mt-4 px-6 py-3 bg-[#3b68ff] text-white rounded-full text-lg font-medium w-full"

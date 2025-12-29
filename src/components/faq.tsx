@@ -19,10 +19,11 @@ const Faq: React.FC = () => {
               What is ProjectHub?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base text-gray-600 leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              itaque dignissimos animi consequatur excepturi accusamus deleniti
-              cum nobis, assumenda, quos ad eum. Deleniti, suscipit? Alias
-              impedit ad veniam laboriosam recusandae?
+              ProjectHub is an all-in-one project management platform designed
+              to help teams collaborate, track progress, and deliver projects on
+              time. With features like task management, real-time updates, and
+              powerful analytics, ProjectHub empowers teams of all sizes to work
+              smarter and achieve their goals faster.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -40,10 +41,10 @@ const Faq: React.FC = () => {
               Is there a trial available?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base text-gray-600 leading-relaxed">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              dolores reiciendis culpa praesentium quo, voluptates provident
-              hic, ipsa assumenda quibusdam magni beatae odio, ex accusamus.
-              Dolores consequatur obcaecati eos unde!
+              Yes! We offer a 14-day free trial with full access to all
+              features. No credit card required to get started. Simply sign up
+              and explore everything ProjectHub has to offer. If you love it,
+              you can upgrade to a paid plan anytime during or after your trial.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -51,10 +52,11 @@ const Faq: React.FC = () => {
               Can I manage multiple projects with ProjectHub?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base text-gray-600 leading-relaxed">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              dolores reiciendis culpa praesentium quo, voluptates provident
-              hic, ipsa assumenda quibusdam magni beatae odio, ex accusamus.
-              Dolores consequatur obcaecati eos unde!
+              Absolutely! ProjectHub is built for teams juggling multiple
+              projects. You can create unlimited projects, organize them into
+              workspaces, and easily switch between them. Our dashboard gives
+              you a bird&apos;s-eye view of all your projects so nothing falls
+              through the cracks.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-5">

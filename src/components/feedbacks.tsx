@@ -41,7 +41,7 @@ const FEEDBACKS = [
     position: "CEO at Microsoft",
     image: "https://i.pravatar.cc/150?u=a042582f4e29026704c",
     feedback:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, commodi. Sunt molestias tempore atque accusamus cumque nesciunt nemo nobis.",
+      "We've tried countless project management tools, but ProjectHub stands out. The seamless integration with our existing workflows saved us hours every week. It's become essential to our daily operations.",
   },
   {
     rate: 5,
@@ -49,7 +49,7 @@ const FEEDBACKS = [
     position: "CEO at Apple",
     image: "https://i.pravatar.cc/150?u=a042585f4e29026204c",
     feedback:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, commodi. Sunt molestias tempore atque accusamus cumque nesciunt nemo nobis.",
+      "ProjectHub helped us scale from a small team to over 200 employees without missing a beat. The real-time collaboration features keep everyone aligned, no matter where they work from.",
   },
 ];
 
